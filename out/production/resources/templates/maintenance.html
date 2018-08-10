@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+    <title>Karbantartás nyilvántartó</title>
+</head>
+<body style="background-color: lightgray">
+<div class="container-fluid">
+    <table class="table table-hover table-bordered table-striped">
+        <thead style="background-color: #d15406">
+        <tr>
+            <th scope="col" >#</th>
+            <th scope="col" >Ügyfél neve</th>
+            <th scope="col" >Kiszállás helye</th>
+            <th scope="col" >Kiszállás gyakorisága</th>
+            <th scope="col" >kiszállás ideje</th>
+            <th scope="col" >Szerződés lejárta</th>
+            <!--<th scope="col" >Karbantartási havidíj nettó</th>
+            <th scope="col" >Fizetési megállapodások</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="client,iter : ${clients}">
+            <th th:text="*{iter.index + 1}" scope="row"></th>
+            <th th:text="*{client.name}" scope="row"></th>
+            <th th:text="*{client.siteAddress}" scope="row"></th>
+            <th th:text="*{client.siteFrequency}" scope="row"></th>
+            <th th:text="*{client.responseTime}" scope="row"></th>
+            <th th:text="*{client.endOfLicence}" scope="row"></th>
+            <!--<th th:text="*{client.maintenanceFee}" scope="row"></th>
+            <th th:text="*{client.paymentAgreement}" scope="row"></th>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>
