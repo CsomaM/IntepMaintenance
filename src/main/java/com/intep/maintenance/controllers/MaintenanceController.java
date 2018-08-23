@@ -1,5 +1,6 @@
 package com.intep.maintenance.controllers;
 
+import com.intep.maintenance.modules.Client;
 import com.intep.maintenance.repository.MaintenanceTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,5 +17,11 @@ public class MaintenanceController {
     public String index (Model model) {
         model.addAttribute("clients", mt.findAll());
         return "maintenance";
+    }
+
+    @RequestMapping("/add")
+    public String add (Model model){
+        model.addAttribute("newClient", new Client());
+        return "addclient";
     }
 }
