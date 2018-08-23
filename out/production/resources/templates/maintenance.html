@@ -7,9 +7,14 @@
     <title>Karbantartás nyilvántartó</title>
 </head>
 <body style="background-color: lightgray">
-<div>
-    <button onclick="addClient()">Kliens hozzáadása</button>
+
+<div class="container-fluid" style="background-color: lightgray">
+    <h1 style="float: left">Karbantartásos ügyfelek:</h1>
+    <nav class="nav justify-content-center">
+        <a class="nav-link active" href="/add" style="font-size: x-large">Kliens hozzáadása</a>
+    </nav>
 </div>
+
 <div class="container-fluid">
     <table class="table table-hover table-bordered table-striped">
         <thead style="background-color: #d15406">
@@ -37,12 +42,10 @@
         </tr>
         </tbody>
     </table>
-
-    <p id="demo"></p>
-
 </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
 </body>
 </html>
