@@ -12,6 +12,7 @@
     <h1 style="float: left">Karbantartásos ügyfelek:</h1>
     <nav class="nav justify-content-center">
         <a class="nav-link active" href="/add" style="font-size: x-large">Kliens hozzáadása</a>
+
     </nav>
 </div>
 
@@ -27,6 +28,9 @@
             <th scope="col" >Szerződés lejárta</th>
             <!--<th scope="col" >Karbantartási havidíj nettó</th>
             <th scope="col" >Fizetési megállapodások</th>-->
+            <th scope="col" ></th>
+            <th scope="col" ></th>
+
         </tr>
         </thead>
         <tbody>
@@ -39,6 +43,8 @@
             <th th:text="*{client.endOfLicence}" scope="row"></th>
             <!--<th th:text="*{client.maintenanceFee}" scope="row"></th>
             <th th:text="*{client.paymentAgreement}" scope="row"></th>-->
+            <th><a th:href="@{'/edit/' + ${client.id}}">szerkesztés</a></th>
+            <th><a th:href="@{'/delete/' + ${client.id}}">törlés</a></th>
         </tr>
         </tbody>
     </table>
