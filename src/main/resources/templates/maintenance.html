@@ -24,7 +24,7 @@
 </div>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 <div class="container-fluid">
-    <table class="table table-hover table-bordered table-striped">
+    <table class="table table-hover table-bordered ">
         <thead style="background-color: #d15406">
 	        <tr>
 	            <th scope="col" >#</th>
@@ -38,8 +38,6 @@
 				<th scope="col" >Fizetési megállapodások</th>
 				<th scope="col" >Utolsó karbantartás</th>
 				<th scope="col" >Megjegyzés</th>
-				<th scope="col" >Megjegyzés</th>
-				<th scope="col" >Megjegyzés</th>
 	            <th scope="col" ></th>
 	        </tr>
         </thead>
@@ -52,11 +50,9 @@
 		          <th th:text="*{client.siteFrequency}" scope="row"></th>
 		          <th th:text="*{client.responseTime}" scope="row"></th>
 		          <th th:text="*{client.endOfLicence}" scope="row"></th>
-		          <th th:text="*{client.maintenanceFee}" scope="row"></th>
-				  <th th:text="*{client.paymentAgreement}" scope="row"></th>
-				  <th th:text="*{client.lastMaintenance}" scope="row"></th>
-				  <th th:text="*{client.isHeating}" scope="row"></th>
-				  <th th:text="*{client.isCooling}" scope="row"></th>
+		          <th th:text="*{client.maintenanceFee}  + -Ft " scope="row"></th>
+				  <th th:text="*{client.paymentAgreement}"  scope="row"></th>
+				  <th th:text="*{client.lastMaintenance}" scope="row" th:style="${client.isItDue()} ? 'background: red;' : 'background: lightgray;'" ></th>
 		          <th th:text="*{client.comment}" scope="row"></th>
 		          <th>
 		          	<a th:href="@{'/edit/' + ${client.id}}" ><img src="edit.png" height="21" width="21"></a>

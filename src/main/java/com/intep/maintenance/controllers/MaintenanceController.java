@@ -1,8 +1,10 @@
 package com.intep.maintenance.controllers;
 
 import com.intep.maintenance.modules.Client;
-import com.intep.maintenance.repository.MaintenanceTable;
 import com.intep.maintenance.services.ClientService;
+
+import java.text.ParseException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,9 +29,8 @@ public class MaintenanceController {
     }
 
     @RequestMapping("/add")
-    public String add (Model model){
+    public String add (Model model) throws ParseException{
         model.addAttribute("newClient", new Client());
-        model.addAttribute("clients", clientService.getAllClients());
         return "addclient";
     }
 

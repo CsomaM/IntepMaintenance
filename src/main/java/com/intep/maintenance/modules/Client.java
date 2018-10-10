@@ -1,6 +1,13 @@
 package com.intep.maintenance.modules;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Formatter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,15 +30,12 @@ public class Client {
     private Integer maintenanceFee;
     private String paymentAgreement;
     private String comment;
-    private Date lastMaintenance;
-    private boolean isHeating;
-    private boolean isCooling;
-    private boolean isPendingMaintenance;
-
+    private LocalDate lastMaintenance;
+    private boolean heating = false;
+    private boolean cooling = false;
 
     public Client(String name, String product, String siteAddress, Integer siteFrequency, String responseTime,
-    		String endOfLicence, Integer maintenanceFee, String paymentAgreement, String comment, Date lastMaintenance,
-    		boolean isHeating, boolean isCooling, boolean isPendingMaintenance) {
+    		String endOfLicence, Integer maintenanceFee, String paymentAgreement, String comment, LocalDate lastMaintenance) {
         this.name = name;
         this.product = product;
         this.siteAddress = siteAddress;
@@ -42,12 +46,11 @@ public class Client {
         this.paymentAgreement = paymentAgreement;
         this.lastMaintenance = lastMaintenance;
         this.comment = comment;
-        this.isHeating = isHeating;
-        this.isCooling = isCooling;
-        this.isPendingMaintenance = isPendingMaintenance;
+        this.heating = false;
+        this.cooling = false;
     }
 
-    public Client() {
+    public Client() throws ParseException {
         this.name = "default";
         this.product = "default";
         this.siteAddress = "default";
@@ -57,10 +60,9 @@ public class Client {
         this.maintenanceFee = 0;
         this.paymentAgreement = "default";
         this.comment = "default";
-        this.lastMaintenance = new Date();
-        this.isHeating = false;
-        this.isCooling = false;
-        this.isPendingMaintenance = false;
+        this.lastMaintenance = LocalDate.now();
+        this.heating = false;
+        this.cooling = false;
     }
 
     public void updateClient(Client updatedClient) {
@@ -73,43 +75,44 @@ public class Client {
         this.paymentAgreement = updatedClient.paymentAgreement;
         this.lastMaintenance = updatedClient.lastMaintenance;
         this.comment = updatedClient.comment;
-        this.isHeating = updatedClient.isHeating;
-        this.isCooling = updatedClient.isCooling;
-        this.isPendingMaintenance = updatedClient.isPendingMaintenance;
+        this.heating = updatedClient.heating;
+        this.cooling = updatedClient.cooling;
     }
     
-    
+    public boolean isItDue () throws ParseException {
+    	double dueTime = this.siteFrequency * 15;
+    	LocalDate currentDate = LocalDate.now();
+    	if (lastMaintenance.getMonthValue() <= currentDate.getMonthValue() && Math.abs(lastMaintenance.getDayOfMonth() - currentDate.getDayOfMonth()) >= dueTime) {
+    		return true;
+    	} else { 		
+    		return false;
+    	}
+    }
 
-    public Date getLastMaintenance() {
-		return lastMaintenance;
+	public String getLastMaintenance() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		return formatter.format(lastMaintenance);
 	}
 
-	public void setLastMaintenance(Date lastMaintenance) {
-		this.lastMaintenance = lastMaintenance;
+	public void setLastMaintenance(String lastMaintenance) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
+		this.lastMaintenance = LocalDate.parse(lastMaintenance, formatter);
 	}
 
 	public boolean isHeating() {
-		return isHeating;
+		return heating;
 	}
 
 	public void setHeating(boolean heating) {
-		this.isHeating = heating;
+		this.heating = heating;
 	}
-
+	
 	public boolean isCooling() {
-		return isCooling;
+		return cooling;
 	}
 
 	public void setCooling(boolean cooling) {
-		this.isCooling = cooling;
-	}
-
-	public boolean isPendingMaintenance() {
-		return isPendingMaintenance;
-	}
-
-	public void setPendingMaintenance(boolean pendingMaintenance) {
-		this.isPendingMaintenance = pendingMaintenance;
+		this.cooling = cooling;
 	}
 
 	public String getProduct() {

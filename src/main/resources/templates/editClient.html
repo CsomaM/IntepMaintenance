@@ -11,37 +11,43 @@
 	<form th:action="@{/editclient}" th:object="${editedClient}" method="post" class="col alight-self-center">
 	    <div class="form-group" >
 	    
-	        <input type="hidden" class="col-md-4 mb-2" id="id" placeholder="Empty field" th:field="*{id}" /><br />
+	        <input type="hidden" class="col-md-4 mb-2" id="id" placeholder="Empty field" th:field="*{id}" /><br/>
 	
-	        <label for="name" >Ügyfél neve</label><br />
-			<input type="text" class="col-md-4 mb-2" id="name" placeholder="Empty field" th:field="*{name}" /><br />
+	        <label for="name" >Ügyfél neve</label><br/>
+			<input type="text" class="col-md-4 mb-2" id="name" placeholder="Empty field" th:field="*{name}" /><br/>
 			
-			<label for="product" >Termék</label><br />
-	        <input type="text" class="col-md-4 mb-2" id="product" placeholder="Empty field" th:field="*{product}" /><br />
+			<label for="product" >Termék</label><br/>
+	        <input type="text" class="col-md-4 mb-2" id="product" placeholder="Empty field" th:field="*{product}" /><br/>
 	        
-	        <label for="siteAddress" >Kiszállás helye</label><br />
-	        <input type="text" class="col-md-4 mb-2" id="siteAddress" placeholder="Empty field" th:field="*{siteAddress}" /><br />
+	        <label for="siteAddress" >Kiszállás helye</label><br/>
+	        <input type="text" class="col-md-4 mb-2" id="siteAddress" placeholder="Empty field" th:field="*{siteAddress}" /><br/>
 	        
-	        <label for="siteFrequency" >Kiszállás gyakorisága</label><br />
-	        <input type="text" class="col-md-4 mb-2" id="siteFrequency" placeholder="Empty field" th:field="*{siteFrequency}" /><br />
+	        <label for="siteFrequency" >Kiszállás gyakorisága</label><br/>
+	        <input type="text" class="col-md-4 mb-2" id="siteFrequency" placeholder="Empty field" th:field="*{siteFrequency}" /><br/>
 	        
-	        <label for="responseTime" >Kiszállási ideje</label><br />
-	        <input type="text" class="col-md-4 mb-2" id="responseTime" placeholder="Empty field" th:field="*{responseTime}" /><br />
+	        <label for="responseTime" >Kiszállási ideje</label><br/>
+	        <input type="text" class="col-md-4 mb-2" id="responseTime" placeholder="Empty field" th:field="*{responseTime}" /><br/>
 	        
-	        <label for="endOfLicence" >Szerződés lejárta</label><br />
-	        <input type="text" class="col-md-4 mb-2" id="endOfLicence" placeholder="Empty field" th:field="*{endOfLicence}" /><br />
+	        <label for="endOfLicence" >Szerződés lejárta</label><br/>
+	        <input type="text" class="col-md-4 mb-2" id="endOfLicence" placeholder="Empty field" th:field="*{endOfLicence}" /><br/>
 	        
-	        <label for="maintenanceFee" >Karbantartási havidíj nettó</label><br />
-	        <input type="text" class="col-md-4 mb-2" id="maintenanceFee" placeholder="Empty field" th:field="*{maintenanceFee}" /><br />
+	        <label for="maintenanceFee" >Karbantartási havidíj nettó</label><br/>
+	        <input type="text" class="col-md-4 mb-2" id="maintenanceFee" placeholder="Empty field" th:field="*{maintenanceFee}" /><br/>
 	        
-	        <label for="paymentAgreement" >Fizetési megállapodások</label><br />
-			<input type="text" class="col-md-4 mb-2" id="paymentAgreement" placeholder="Empty field" th:field="*{paymentAgreement}" /><br />
+	        <label for="paymentAgreement" >Fizetési megállapodások</label><br/>
+			<input type="text" class="col-md-4 mb-2" id="paymentAgreement" placeholder="Empty field" th:field="*{paymentAgreement}" /><br/>
 
-			<label for="lastMaintenance" >Utolsó karbantartás</label><br />
-			<input type="text" class="col-md-4 mb-2" id="lastMaintenance" placeholder="Empty field" th:field="*{lastMaintenance}" /><br />
+			<label for="lastMaintenance" >Utolsó karbantartás</label><br/>
+			<input type="text" class="col-md-4 mb-2" id="lastMaintenance" placeholder="Empty field" th:field="*{lastMaintenance}" /><br/>
 			
-			<label for="comment" >Megjegyzés</label><br />
-	        <input type="text" class="col-md-4 mb-2" id="comment" placeholder="Empty field" th:field="*{comment}" /><br />
+			<label for="heating" >Fűtés</label><br/>
+			<input type="checkbox" class="col-md-4 mb-2" id="heating" name="heating" th:checked="*{heating}" /><br/>
+
+			<label for="cooling" >Hűtés</label><br/>
+			<input type="checkbox" class="col-md-4 mb-2" id="cooling" name="Heating" th:checked="*{cooling}" /><br/>
+
+			<label for="comment" >Megjegyzés</label><br/>
+	        <input type="text" class="col-md-4 mb-2" id="comment" placeholder="Empty field" th:field="*{comment}" /><br/>
 	        
 	    </div>
     
